@@ -4,10 +4,10 @@
 	id		= "com.cc.draco"
 	version   = "3.0.5">
 
-	<name>Draco</name>
+	<name>MyTrack</name>
 
 	<description>
-		Draco, a friendly workout pet!
+		Track my location, and share it, anywhere from your phone!
 	</description>
 
 	<author href="http://workplaymobile.com"
