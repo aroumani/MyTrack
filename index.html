@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0">
+
+		<link rel="stylesheet" href="css/home.css" type="text/css" />
+		<link type="text/css" href="js/lib/ui/css/ui-lightness/jquery-ui-1.8.22.custom.css" rel="stylesheet" />
+		<script src="js/lib/jquery1.7.1.js"></script>
+		<script type="text/javascript" src="js/lib/ui/js/jquery-ui-1.8.22.custom.min.js"></script>
+		<script type="text/javascript" src="phonegap.js"></script > 
+		<script type="text/javascript" src="cordova.js"></script > 
+		<link type="text/css" href="js/lib/apprise.min.css" rel="stylesheet" />
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+		<script type="text/javascript" src="js/lib/apprise-1.5.min.js"></script>
+		<script type="text/javascript" src="js/home.js"></script>
+		
+		<style type="text/css" media="screen"> 
+			body { 
+				margin:0; 
+				padding:0; 
+				height:100%; /* this is the key! */ 
+				font: 100%/1.4 Calibri,Verdana, Arial, Helvetica, sans-serif;font-size:15px;"
+			} 
+			
+			input{
+				background-color:#F9F8E4; /* when in focus */
+				background:url("/images/input_bg.png") repeat-x scroll left top #F7FCFF;
+				border:1px solid #97B5D2;
+				color:#25313C;
+				font-family:Georgia,Times,"Times New Roman",serif;
+				font-size:15px; /* This probably makes it "fat" as you want */
+				font: Verdana;
+				margin:0;
+				outline:0 none;
+				width:80%;
+				padding:10px;
+				margin-right:5px;
+			}
+		</style>
+		
+        <title>
+			Home
+        </title>
+    </head>
+    <body onload="onPageLoad();">
+		<div id="page-background"><img id="backgrImg" src="" style="width:100%; height:100%;" alt="bg"></div>
+		
+		<div id="content" style="height:100%;">
+			<div id="h" style="height:10%;">
+				<table align="left" style="background-color:black;" width="100%"><tr>
+					<td style="width:20%;height:33%" align="left"></td>
+					<td align="center" style="width:50%;height:33%"><div id="title" style="color:white;font: 100%/1.4 Calibri,Verdana, Arial, Helvetica, sans-serif;font-size:15px;">TrackMe - Sign In</div></td>
+					<td align="right" style="width:33%;height:33%"><img style="align:right;height:12%" src="images/help.png" onclick="tutorial()"/><img style="margin-left:12px;align:right;height:12%" src="images/settings2.png" onclick="settings();"/></td>
+				</tr></table>
+			</div>
+			
+			<div width="100%" style="height:60%;" id="loginSection" align="center">
+				<p>Please login below with your user name and password</p>
+				<table align="center" width="100%">
+					<tr align="center"><td align="right">Email:</td><td align="left"><input id="username"/></td></tr>
+					<tr align="center"><td align="right">Password:</td><td align="left"><input type="password" id="password"/></td></tr>
+					<tr align="center"><td></td><td align="left"><a onclick="login();" href="#" class="but">Login</a></td></tr>
+				</table>
+				<div id="loginResult" style="color:red;height:10%"></div>
+				<hr/>
+				<p>Don't have an account? <br/>Click below to create one now.<br/><a onclick="showCreateAccount();" href="#" class="but">Create Account</a></p>
+			</div>
+			
+			<div width="100%" style="height:60%;display:none;" id="createAccountSection" align="center">
+				<p>To create an account enter an email address and password</p>
+				<table align="center" width="100%">
+					<tr align="center"><td align="right">Email:</td><td align="left"><input id="username1"/></td></tr>
+					<tr align="center"><td align="right">Password:</td><td align="left"><input type="password" id="password1"/></td></tr>
+					<tr align="center"><td align="right">Confirm<br/>Password:</td><td align="left"><input type="password" id="password2"/></td></tr>
+					<tr align="center"><td></td><td align="left"><a onclick="createAccount();" href="#" class="but">Create</a></td></tr>
+				</table>
+				<div id="createResult" style="color:red;height:10%"></div>
+				<hr/>
+				<p>Already have an account? <br/>Click below to login now.<br/><a onclick="showLogin();" href="#" class="but">Login Page</a></p>
+			</div>
+			
+			<div width="100%" style="height:60%;display:none;" id="trackSection" align="center">
+				<p>Your current tracking information</p>
+				<div style="color:red;height:7%" id="trackInfo"></div>
+				<table align="center" width="100%">
+					<tr align="center"><td align="right">Longitute:</td><td align="left"><div id="long"/>loading...</td></tr>
+					<tr align="center"><td align="right">Latitue:</td><td align="left"><div id="lat"/>loading...</td></tr>
+				</table>
+				<div width="50%" style="height:80%" id="map_canvas"></div>
+				<hr/>
+				<table>
+				<tr>
+					<td><a onclick="showLogin();" href="#" class="but">Back</a></td>
+					<td><a onclick="showLogin();" href="#" class="but">Map View</a></td>
+				</tr/>
+				</table>
+			</div>
+			
+			
+			
+		</div>
+    </body>
+</html>
